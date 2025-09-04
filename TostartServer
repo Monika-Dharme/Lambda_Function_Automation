@@ -1,0 +1,13 @@
+#To start_instances, enter the following code into the code editor
+
+import boto3  
+region = 'us-west-1'
+instances = ['i-12345cb6de4f78g9h', 'i-08ce9b2d7eccf6d26']
+ec2 = boto3.client('ec2', region_name=region)
+
+def lambda_handler(event, context):
+    ec2.start_instances(InstanceIds=instances)
+    print('started your instances: ' + str(instances))
+
+#Note: Replace us-west-1 with the AWS Region that your instances are in and InstanceIds with the IDs of the instances that you want to stop and start.
+
